@@ -41,3 +41,15 @@ INSERT INTO pelanggan
 (nama, ktp, jenis_kelamin, alamat, email, password, reset_pass, gambar, created_at)
 VALUES
 ('Pemijat1', '0000000000000000', 'L', 'Surabaya', 'pemijat@gmail.com', 'password', 'null', 'gambar', '2020-04-21 22:18:44')
+
+CREATE TABLE pemesanan (
+ id int primary key identity,
+ pemijat_id int NOT NULL,
+ pelanggan_id int NOT NULL,
+ status varchar (20) NOT NULL
+)
+
+INSERT INTO pemesanan
+(pemijat_id, pelanggan_id, status)
+VALUES
+(1, 1, 'Pending')
