@@ -22,6 +22,13 @@ $container->setShared('session', function() {
 	return $session;
 });
 
+$container->setShared('response', function () {
+    $response = new \Phalcon\Http\Response();
+    $response->setContentType('application/json', 'utf-8');
+
+    return $response;
+});
+
 $container['dispatcher'] = function() {
 
     $eventsManager = new Manager();
