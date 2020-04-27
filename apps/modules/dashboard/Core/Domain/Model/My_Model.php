@@ -4,7 +4,7 @@ namespace MyModel;
 
 use Phalcon\Mvc\Model;
 
-class Log extends Model
+class My_Model extends Model
 {
     public $created_at;
     public function beforeCreate()
