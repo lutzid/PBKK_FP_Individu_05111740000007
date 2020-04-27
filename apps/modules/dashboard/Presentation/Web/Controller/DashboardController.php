@@ -20,6 +20,11 @@ class DashboardController extends BaseController
 
     }
 
+    public function error404Action()
+    {
+
+    }
+
     public function homeAction()
     {
         if ($this->is_pemijat()){

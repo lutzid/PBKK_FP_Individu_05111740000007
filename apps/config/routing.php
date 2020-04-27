@@ -181,9 +181,10 @@ $container['router'] = function() use ($defaultModule, $modules) {
 	 */
 	$router->notFound(
 		[
-			'namespace' => 'Its\Common\Controller',
-			'controller' => 'error',
-			'action'     => 'route404',
+			'namespace' => 'MyModule\Dashboard\Presentation\Web\Controller',
+			'module' => 'dashboard',
+			'controller' => 'dashboard',
+			'action'     => 'error404',
 		]
 	);
 
