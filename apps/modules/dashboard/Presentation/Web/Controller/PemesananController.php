@@ -25,7 +25,6 @@ class PemesananController extends BaseController
             ]
         );
         $pemesanan->status = 'Proses';
-        // var_dump($pemesanan);die;
         if($pemesanan->save())
         {
             return $this->response->redirect('home');
@@ -43,7 +42,6 @@ class PemesananController extends BaseController
             ]
         );
         $pemesanan->status = 'Ditolak';
-        // var_dump($pemesanan);die;
         if($pemesanan->save())
         {
             return $this->response->redirect('home');
@@ -90,7 +88,6 @@ class PemesananController extends BaseController
             ]
         );
         $pemesanan->status = 'Selesai';
-        // var_dump($pemesanan);die;
         if($pemesanan->save())
         {
             return $this->response->redirect('home');

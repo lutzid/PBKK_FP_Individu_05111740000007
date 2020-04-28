@@ -27,6 +27,10 @@ class DashboardController extends BaseController
 
     public function homeAction()
     {
+        if(!$this->session->has('auth')){
+            return $this->response->redirect('login');
+        }
+        
         if ($this->is_pemijat()){
             $id = $this->getSessionId();
             $pemesanans = Pemesanan::find(
@@ -72,7 +76,6 @@ class DashboardController extends BaseController
                     ]
                 ]
             );
-            // var_dump($orang);die;
             $penghasilan = $pesanSelesai->count() * $pemijat->getTarif();
             $this->view->pemesanans = $pemesanans;
             $this->view->penghasilan = $penghasilan;
@@ -110,6 +113,10 @@ class DashboardController extends BaseController
 
     public function riwayatAction()
     {
+        if(!$this->session->has('auth')){
+            return $this->response->redirect('login');
+        }
+
         if ($this->is_pemijat()){
             $id = $this->getSessionId();
             $pemijat = Pemijat::findFirst(
@@ -141,13 +148,16 @@ class DashboardController extends BaseController
             //     ]
             // );
             $pemesanans = $pelanggan->getpemesanan();
-            // var_dump($pemesanans);die;
             $this->view->pemesanans = $pemesanans;
         }
     }
 
     public function profileAction()
     {
+        if(!$this->session->has('auth')){
+            return $this->response->redirect('login');
+        }
+
         if ($this->is_pemijat()){
             $id = $this->getSessionId();
             $user = Pemijat::findFirst(

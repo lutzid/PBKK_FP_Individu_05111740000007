@@ -4,12 +4,9 @@
     <div class="content-header">
         <!-- Left Section -->
         <div class="content-header-section">
-            <!-- Open Search Section -->
-            <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
-            <!-- <button type="button" class="btn btn-dual-secondary" data-toggle="layout" data-action="header_search_on">
-                <i class="fa fa-search"></i> <span>Search</span>
-            </button> -->
-            <!-- END Open Search Section -->
+            <a class="font-size-h3" style="color:#1f1f1f; background-color: transparent;border-color: transparent;" href="{{url()}}">
+                Pijat.in
+            </a>
         </div>
         <!-- END Left Section -->
 

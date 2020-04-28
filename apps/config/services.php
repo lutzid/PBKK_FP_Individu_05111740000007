@@ -1,5 +1,6 @@
 <?php
 
+use Phalcon\Escaper;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Session\Adapter\Stream as Session;
 use Phalcon\Security;
@@ -126,14 +127,14 @@ $container->set(
 $container->set(
     'flash',
     function () {
-        $flash = new FlashDirect(
-            [
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning',
-            ]
-        );
+        $escaper = new Escaper();
+        $flash   = new FlashDirect($escaper);
+        $flash->setCssClasses([
+            'error'   => 'alert alert-danger',
+            'success' => 'alert alert-success',
+            'notice'  => 'alert alert-info',
+            'warning' => 'alert alert-warning'
+        ]);
 
         return $flash;
     }
@@ -142,14 +143,14 @@ $container->set(
 $container->set(
     'flashSession',
     function () {
-        $flash = new FlashSession(
-            [
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning',
-            ]
-        );
+        $escaper = new Escaper();
+        $flash   = new FlashSession($escaper);
+        $flash->setCssClasses([
+            'error'   => 'alert alert-danger',
+            'success' => 'alert alert-success',
+            'notice'  => 'alert alert-info',
+            'warning' => 'alert alert-warning'
+        ]);
 
         $flash->setAutoescape(false);
         

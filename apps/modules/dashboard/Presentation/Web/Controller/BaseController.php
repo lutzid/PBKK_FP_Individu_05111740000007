@@ -6,12 +6,12 @@ use Phalcon\Mvc\Controller;
 
 class BaseController extends Controller
 {
-    public function beforeExecuteRoute()
-    {
-    	if(!$this->session->has('auth')){
-    		return $this->response->redirect('login');
-    	}
-    }
+    // public function beforeExecuteRoute()
+    // {
+    // 	if(!$this->session->has('auth')){
+    // 		return $this->response->redirect('login');
+    // 	}
+    // }
 
     public function is_loggedin()
     {

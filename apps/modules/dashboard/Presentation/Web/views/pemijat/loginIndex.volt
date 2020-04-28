@@ -22,13 +22,9 @@
                 <div class="block block-themed block-rounded block-shadow">
                     <div class="block-header bg-gd-emerald">
                         <h3 class="block-title">Silahkan Login</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option">
-                                <i class="si si-wrench"></i>
-                            </button>
-                        </div>
                     </div>
                     <div class="block-content">
+                        {{ flashSession.output() }}
                         <div class="form-group row">
                             <div class="col-12">
                                 <label for="email">Email</label>

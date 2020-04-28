@@ -24,6 +24,7 @@
                         <h3 class="block-title">Silahkan Log In</h3>
                     </div>
                     <div class="block-content">
+                        {{ flashSession.output() }}
                         <div class="form-group row">
                             <div class="col-12">
                                 <label for="email">Email</label>

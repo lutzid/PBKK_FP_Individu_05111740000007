@@ -36,7 +36,6 @@ class PelangganController extends BaseController
             $data['gambar'] = 'storage/avatar3.jpg';
             $new_pelanggan = new Pelanggan();
             $new_pelanggan->registrasi($data);
-            // var_dump($new_pelanggan);die;
             $new_pelanggan->save();
            return $this->response->redirect('login/pelanggan')->send();
         }
@@ -59,13 +58,13 @@ class PelangganController extends BaseController
                 ],
             ]
         );
-        if($get_pelanggan === false){
+        if($get_pelanggan == false){
             $this->flashSession->error("Email atau Password yang anda inputkan salah.");
-            return $this->response->redirect('login');
+            return $this->response->redirect('login/pelanggan');
         }else{
             if(!$this->security->checkHash($pass,$get_pelanggan->password)){
                 $this->flashSession->error("Email atau Password yang anda inputkan salah.");
-                return $this->response->redirect('login');
+                return $this->response->redirect('login/pelanggan');
             }
             $this->session->set('auth', $get_pelanggan);
             $this->session->set('role', 'Pelanggan');
@@ -77,7 +76,8 @@ class PelangganController extends BaseController
     public function logoutAction()
     {
         $this->session->destroy();
-        return $this->response->redirect('');
+        $this->flashSession->success("Anda berhasil logout.");
+        return $this->response->redirect('login/pelanggan');
     }
 
     public function editAction()
@@ -85,7 +85,6 @@ class PelangganController extends BaseController
         if($this->request->isPost())
         {
             $id = $this->getSessionId();
-            // var_dump($id);die;
             $user = Pelanggan::findFirst(
                 [
                     "conditions" => "id = :id:",
@@ -98,10 +97,8 @@ class PelangganController extends BaseController
             $data['id'] = $id;
             $data['reset_pass'] = 'null';
             $user->registrasi($data);
-            // $user->save();
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
-                // var_dump($this->request->getUploadedFiles());die();  
                 $isuploaded = false;
                 $allpath = "";
                 foreach($uploads as $up)
@@ -118,7 +115,6 @@ class PelangganController extends BaseController
                 }
                 $user->gambar = $allpath;
             }
-            // var_dump($user);die;
             if($user->save())
             {
                 return $this->response->redirect('profile');

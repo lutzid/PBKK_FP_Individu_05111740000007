@@ -18,7 +18,6 @@ class PemijatController extends BaseController
         // $result = $db->fetchAll($sql, \Phalcon\Db\Enum::FETCH_ASSOC);
 
         // echo json_encode($result);
-        // var_dump($result); die;
         // echo "register pemijat";
         // $this->view->pick('views/authentication/register');
     }
@@ -37,7 +36,6 @@ class PemijatController extends BaseController
             $data['tarif'] = 0;
             $new_pemijat = new Pemijat();
             $new_pemijat->registrasi($data);
-            // var_dump($new_pemijat);die;
             $new_pemijat->save();
            return $this->response->redirect('login/pemijat')->send();
         }
@@ -60,13 +58,13 @@ class PemijatController extends BaseController
                 ],
             ]
         );
-        if($get_pemijat === false){
+        if($get_pemijat == false){
             $this->flashSession->error("Email atau Password yang anda inputkan salah.");
-            return $this->response->redirect('login');
+            return $this->response->redirect('login/pemijat');
         }else{
             if(!$this->security->checkHash($pass,$get_pemijat->password)){
                 $this->flashSession->error("Email atau Password yang anda inputkan salah.");
-                return $this->response->redirect('login');
+                return $this->response->redirect('login/pemijat');
             }
             // $this->session->set('auth',[
             //     'username' => $user->username
@@ -81,7 +79,8 @@ class PemijatController extends BaseController
     public function logoutAction()
     {
         $this->session->destroy();
-        return $this->response->redirect('');
+        $this->flashSession->success("Anda berhasil logout.");
+        return $this->response->redirect('login/pemijat');
     }
 
     public function editAction()
@@ -102,10 +101,8 @@ class PemijatController extends BaseController
             $data['id'] = $id;
             $data['reset_pass'] = 'null';
             $user->registrasi($data);
-            // $user->save();
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
-                // var_dump($this->request->getUploadedFiles());die();  
                 $isuploaded = false;
                 $allpath = "";
                 foreach($uploads as $up)
@@ -122,7 +119,6 @@ class PemijatController extends BaseController
                 }
                 $user->gambar = $allpath;
             }
-            // var_dump($user);die;
             if($user->save())
             {
                 return $this->response->redirect('profile');

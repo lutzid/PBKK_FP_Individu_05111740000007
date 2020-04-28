@@ -72,6 +72,8 @@
         
         <!-- Main Container -->
         <main id="main-container">
+            {% block index %}
+            {% endblock %}
             <!-- Page Content -->
             <div class="content">
                 {% include 'layouts/header.volt' %}
