@@ -30,7 +30,7 @@ class PelangganController extends BaseController
         {
             $random = new \Phalcon\Security\Random();
             $data = $_POST;
-            $data['id'] = $random->base64(18);
+            $data['id'] = $random->base64Safe();
             $data['password'] = $this->security->hash($data['password']);
             $data['reset_pass'] = 'null';
             $data['gambar'] = 'storage/avatar3.jpg';

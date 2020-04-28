@@ -53,7 +53,7 @@ class PemesananController extends BaseController
         $random = new \Phalcon\Security\Random();
         $pemesanan = new Pemesanan();
 
-        $pemesanan->id = $random->base64(18);
+        $pemesanan->id = $random->base64Safe();
         $pemesanan->pemijat_id = $pemijatId;
         $pemesanan->pelanggan_id = $this->getSessionId();
         $pemesanan->status = 'Pending';
