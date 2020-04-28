@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS dbo.pemijat
 DROP TABLE IF EXISTS dbo.pelanggan
 DROP TABLE IF EXISTS dbo.pemesanan
 CREATE TABLE pemijat (
- id varchar (24) primary key,
+ id varchar (60) primary key,
  nama varchar (200) NOT NULL,
  ktp varchar (17) unique NOT NULL,
  jenis_kelamin varchar (2) NOT NULL,
@@ -24,7 +24,7 @@ VALUES
 ('eqwewqdasdasdd', 'Pemijat2', '0000000000000001', 'L', 'Surabaya', 'pemijat@gmail.com', 'password', 'null', 'gambar', 'Aktif', 50000, '2020-04-21 22:18:44')
 
 CREATE TABLE pelanggan (
- id varchar (24) primary key,
+ id varchar (60) primary key,
  nama varchar (200) NOT NULL,
  ktp varchar (17) unique NOT NULL,
  jenis_kelamin varchar (2) NOT NULL,
@@ -46,9 +46,9 @@ OPTION (QUERYTRACEON 460);
 -- ('eqwewqdasdasdd', 'Pelanggan1', '0000000000000000', 'L', 'Surabaya', 'pemijat@gmail.com', '$2y$12$M0hCaXN3Tlh0dmE5cWZCe.tVP/FtBGE/92.ZUs08lo7PBBy.aLy7m', 'null', 'gambar', '2020-04-21 22:18:44'),
 
 CREATE TABLE pemesanan (
- id varchar (24) primary key,
- pemijat_id varchar (24) NOT NULL,
- pelanggan_id varchar (24) NOT NULL,
+ id varchar (60) primary key,
+ pemijat_id varchar (60) NOT NULL,
+ pelanggan_id varchar (60) NOT NULL,
  status varchar (20) NOT NULL,
  created_at datetime default null
 )
