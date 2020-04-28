@@ -62,7 +62,7 @@
                     {% endfor %}
                 {% else %}
                     <tr>
-                        <td class="text-center" colspan = "6">Data Tidak Ditemukan</td>
+                        <td class="text-center" colspan = "7">Data Tidak Ditemukan</td>
                     </tr>
                 {% endif %}
             </tbody>

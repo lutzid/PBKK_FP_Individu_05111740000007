@@ -35,7 +35,7 @@
                         <i class="si si-logout mr-5"></i> Logout
                     </a>
                     {% elseif session.get('role') === 'Pelanggan' %}
-                    <a class="dropdown-item" href="{{url('logout/pemijat')}}">
+                    <a class="dropdown-item" href="{{url('logout/pelanggan')}}">
                         <i class="si si-logout mr-5"></i> Logout
                     </a>
                     {% endif %}
