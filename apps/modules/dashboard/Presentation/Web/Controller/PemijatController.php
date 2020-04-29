@@ -100,7 +100,7 @@ class PemijatController extends BaseController
             $data = $_POST;
             $data['id'] = $id;
             $data['reset_pass'] = 'null';
-            $user->registrasi($data);
+            $data['gambar'] = $user->gambar;
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
                 $isuploaded = false;
@@ -115,12 +115,17 @@ class PemijatController extends BaseController
                     }else{
                         $isUploaded = false;
                     }
-
+                    
                 }
-                $user->gambar = $allpath;
+                $data['gambar'] = $allpath;
             }
+            $user->registrasi($data);
             if($user->save())
             {
+                $this->flashSession->success("Profile Anda berhasil diperbarui.");
+                return $this->response->redirect('profile');
+            } else {
+                $this->flashSession->error("Profile Anda tidak berhasil diperbarui.");
                 return $this->response->redirect('profile');
             }
         }
