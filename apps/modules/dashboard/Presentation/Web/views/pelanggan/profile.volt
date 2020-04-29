@@ -24,6 +24,7 @@
 <form class="js-validation-signup" action="{{url('edit/pelanggan')}}" method="post" enctype="multipart/form-data">
     <div class="block block-themed block-rounded block-shadow">
         <div class="block-content">
+            {{ flashSession.output() }}
             <div class="form-group row">
                 <div class="col-12">
                     <label for="nama">Nama</label>
