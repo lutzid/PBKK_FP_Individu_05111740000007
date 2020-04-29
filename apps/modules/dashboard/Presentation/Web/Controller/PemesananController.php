@@ -27,8 +27,11 @@ class PemesananController extends BaseController
         $pemesanan->status = 'Proses';
         if($pemesanan->save())
         {
-            return $this->response->redirect('home');
+            $this->flashSession->success("Pemesanan berhasil diterima.");
+        } else {
+            $this->flashSession->error("Pemesanan gagal diterima.");
         }
+        return $this->response->redirect('home');
     }
 
     public function rejectAction($pemesananId)
@@ -44,8 +47,11 @@ class PemesananController extends BaseController
         $pemesanan->status = 'Ditolak';
         if($pemesanan->save())
         {
-            return $this->response->redirect('home');
+            $this->flashSession->success("Pemesanan berhasil ditolak.");
+        } else {
+            $this->flashSession->error("Pemesanan gagal ditolak.");
         }
+        return $this->response->redirect('home');
     }
 
     public function registrasiAction($pemijatId)
@@ -57,8 +63,12 @@ class PemesananController extends BaseController
         $pemesanan->pemijat_id = $pemijatId;
         $pemesanan->pelanggan_id = $this->getSessionId();
         $pemesanan->status = 'Pending';
-        $pemesanan->save();
-
+        if ($pemesanan->save())
+        {
+            $this->flashSession->success("Pemesanan berhasil dilakukan.");
+        } else {
+            $this->flashSession->error("Pemesanan gagal dilakukan.");
+        }
         return $this->response->redirect('home');
     }
 
@@ -72,7 +82,12 @@ class PemesananController extends BaseController
                 ],
             ]
         );
-        $pemesanan->delete();
+        if($pemesanan->delete())
+        {
+            $this->flashSession->success("Pemesanan berhasil dibatalkan.");
+        } else {
+            $this->flashSession->error("Pemesanan gagal dibatalkan.");
+        }
 
         return $this->response->redirect('home');
     }
@@ -90,7 +105,10 @@ class PemesananController extends BaseController
         $pemesanan->status = 'Selesai';
         if($pemesanan->save())
         {
-            return $this->response->redirect('home');
+            $this->flashSession->success("Pemesanan berhasil diselesaikan.");
+        } else {
+            $this->flashSession->error("Pemesanan gagal diselesaikan.");
         }
+        return $this->response->redirect('home');
     }
 }

@@ -4,10 +4,10 @@
 <!-- Hover Table -->
 <div class="block">
     <div class="block-content">
+        {{ flashSession.output() }}
         <table class="table table-hover table-vcenter">
             <thead>
                 <tr>
-                    
                     <th class="text-center">#</th>
                     <th>Nama Pemijat</th>
                     <th class="text-center" style="width: 15%;">Tarif</th>

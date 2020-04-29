@@ -52,6 +52,7 @@
         <h3 class="block-title">Pemesanan</h3>
     </div>
     <div class="block-content block-content-full">
+        {{ flashSession.output() }}
         <!-- DataTables init on table by adding .js-dataTable-full-pagination class, functionality initialized in js/pages/be_tables_datatables.js -->
         <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
             <thead>
