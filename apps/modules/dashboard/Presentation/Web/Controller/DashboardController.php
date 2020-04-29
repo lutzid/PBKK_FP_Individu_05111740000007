@@ -13,7 +13,7 @@ class DashboardController extends BaseController
     public function beforeExecuteRoute($dispatcher)
     {
     	if(!$this->session->has('auth')){
-    		$this->dispatcher->forward(
+    		return $this->dispatcher->forward(
             [
                 'controller' => 'authentication',
                 'action'     => 'loginIndex',

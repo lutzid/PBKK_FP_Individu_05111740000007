@@ -101,6 +101,7 @@ class PemijatController extends BaseController
             $data['id'] = $id;
             $data['reset_pass'] = 'null';
             $data['gambar'] = $user->gambar;
+            var_dump($data);die;
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
                 $isuploaded = false;

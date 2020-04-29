@@ -17,6 +17,6 @@ class AuthenticationController extends BaseController
 
     public function loginIndexAction()
     {
-
+        
     }
 }

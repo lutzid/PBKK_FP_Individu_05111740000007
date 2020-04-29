@@ -97,6 +97,10 @@ class PelangganController extends BaseController
             $data['id'] = $id;
             $data['reset_pass'] = 'null';
             $data['gambar'] = $user->gambar;
+            if($user->password !== $data['password']){
+                $data['password'] = $this->security->hash($data['password']);
+            }
+            // var_dump($data);die;
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
                 $isuploaded = false;
