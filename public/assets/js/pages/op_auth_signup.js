@@ -21,39 +21,56 @@ var OpAuthSignUp = function() {
                 jQuery(e).remove();
             },
             rules: {
-                'signup-username': {
-                    required: true,
-                    minlength: 3
-                },
-                'signup-email': {
-                    required: true,
-                    email: true
-                },
-                'signup-password': {
+                'nama': {
                     required: true,
                     minlength: 5
                 },
-                'signup-password-confirm': {
+                'ktp': {
                     required: true,
-                    equalTo: '#signup-password'
+                    minlength: 16
+                },
+                'jenis_kelamin': {
+                    required: true,
+                },
+                'alamat': {
+                    required: true,
+                },
+                'email': {
+                    required: true,
+                    email: true
+                },
+                'password': {
+                    required: true,
+                    minlength: 5
+                },
+                'password-confirm': {
+                    required: true,
+                    equalTo: '#password'
                 }
             },
             messages: {
-                'signup-username': {
-                    required: 'Please enter a username',
-                    minlength: 'Your username must consist of at least 3 characters'
+                'nama': {
+                    required: 'Mohon masukkan nama Anda',
+                    minlength: 'Nama Anda minimal terdiri dari 5 karakter'
                 },
-                'signup-email': 'Please enter a valid email address',
-                'signup-password': {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long'
+                'ktp': {
+                    required: 'Mohon masukkan no KTP Anda',
+                    minlength: 'Masukkan no KTP valid Anda'
                 },
-                'signup-password-confirm': {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long',
-                    equalTo: 'Please enter the same password as above'
+                'jenis_kelamin': {
+                    required: 'Mohon pilih jenis kelamin Anda'
                 },
-                'signup-terms': 'You must agree to the service terms!'
+                'email': 'Mohon masukkan email yang valid',
+                'password': {
+                    required: 'Mohon masukkan password Anda',
+                    minlength: 'Password Anda minimal terdiri dari 5 karakter'
+                },
+                'password-confirm': {
+                    required: 'Mohon masukkan password Anda',
+                    minlength: 'Password Anda minimal terdiri dari 5 karakter',
+                    equalTo: 'Mohon masukkan password yang sama'
+                },
+                'terms': 'You must agree to the service terms!'
             }
         });
     };

@@ -71,5 +71,7 @@
 {% endblock %}
 
 {% block morejs %}
+<script src="{{url('public/assets/js/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{url('public/assets/js/pages/op_auth_signin.js')}}"></script>
 {% endblock %}
 
