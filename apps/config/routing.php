@@ -18,7 +18,7 @@ $container['router'] = function() use ($defaultModule, $modules) {
 	$router->addGet('/register', [
 		'namespace' => 'MyModule\Dashboard\Presentation\Web\Controller',
 		'module' => 'dashboard',
-		'controller' => 'dashboard',
+		'controller' => 'authentication',
 		'action' => 'registerIndex'
 	]);
 
@@ -53,7 +53,7 @@ $container['router'] = function() use ($defaultModule, $modules) {
 	$router->addGet('/login', [
 		'namespace' => 'MyModule\Dashboard\Presentation\Web\Controller',
 		'module' => 'dashboard',
-		'controller' => 'dashboard',
+		'controller' => 'authentication',
 		'action' => 'loginIndex'
 	]);
 

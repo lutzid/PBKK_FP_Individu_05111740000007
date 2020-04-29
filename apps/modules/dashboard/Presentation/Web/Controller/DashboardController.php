@@ -10,14 +10,15 @@ use MyModel\Pelanggan;
 
 class DashboardController extends BaseController 
 {
-    public function registerIndexAction() 
+    public function beforeExecuteRoute($dispatcher)
     {
-        
-    }
-
-    public function loginIndexAction()
-    {
-
+    	if(!$this->session->has('auth')){
+    		$this->dispatcher->forward(
+            [
+                'controller' => 'authentication',
+                'action'     => 'loginIndex',
+            ]);
+        }
     }
 
     public function error404Action()
